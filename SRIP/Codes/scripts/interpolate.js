@@ -16,6 +16,36 @@ function interpolate(inputImage, xCoord, yCoord, type) {
             pixelvalues.blue = inputImage.data[index + 2];
             break;
         case "bilinear":
+            let paddedImage = new ImageData(inputImage.width + 2, inputImage.height + 2);
+            for(let i = 0; i < paddedImage.data.length; i += 4) {
+                let tempx = getCoordinates(paddedImage, i).x;
+                let tempy = getCoordinates(paddedImage, i).y;
+
+                tempindex = getIndex(inputImage,tempx, tempy);
+
+                if(tempx != 0 && tempx != (paddedImage.width - 1) && tempy != 0 && tempy != (paddedImage.height - 1)) {
+                    paddedImage.data[i + 0] = inputImage[index + 0];
+                    paddedImage.data[i + 1] = inputImage[index + 1];
+                    paddedImage.data[i + 2] = inputImage[index + 2];
+                    paddedImage.data[i + 3] = 255;
+                }
+            }
+            let tempx = xCoord + 1;
+            let tempy = yCoord + 1;
+            let index = getIndex(paddedImage, Math.floor(tempx), Math.floor(tempy));
+            let topLeftRedVal = paddedImage.data[index + 0];
+            let topRightRedVal = paddedImage.data[index + 4];
+            let bottomLeftRedVal = paddedImage.data[index + (paddedImage.width * 4)];
+            let bottomRightRedVal = paddedImage.data[index + (paddedImage.width * 4) + 4];
+
+            let topRedVal =  (topRightRedVal - topLeftRedVal) * (tempx - Math.floor(tempx)) + topLeftRedVal;
+            let bottomRedVal =  (bottomRightRedVal - bottomLeftRedVal) * (tempx - Math.floor(tempx)) + bottomLeftRedVal;
+
+            let interpolatedRedVal = (topRedVal - bottomRedVal) * (tempy - Math.floor(tempy)) + bottomRedVal;
+
+            pixelValues.red = interpolatedRedVal;
+            pixelValues.blue = interpolatedRedVal;
+            pixelValues.green = interpolatedRedVal;
             break;
         case "bicubic":
             break;
