@@ -23,7 +23,7 @@ function interpolate(inputImage, xCoord, yCoord, type) {
 
                 tempindex = getIndex(inputImage,tempx, tempy);
 
-                if(tempx != 0 && tempx != (paddedImage.width - 1) && tempy != 0 && tempy != (paddedImage.height - 1)) {
+                if(tempx !== 0 && tempx !== (paddedImage.width - 1) && tempy !== 0 && tempy !== (paddedImage.height - 1)) {
                     paddedImage.data[i + 0] = inputImage[index + 0];
                     paddedImage.data[i + 1] = inputImage[index + 1];
                     paddedImage.data[i + 2] = inputImage[index + 2];
