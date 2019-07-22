@@ -16,7 +16,7 @@ function interpolate(inputImage, xCoord, yCoord, type) {
             pixelvalues.blue = inputImage.data[index + 2];
             break;
         case "bilinear":
-            let paddedImage = new ImageData(inputImage.width + 2, inputImage.height + 2);
+            let paddedImage = new ImageData(1 + inputImage.width + 1, 1 + inputImage.height + 1);
             for(let i = 0; i < paddedImage.data.length; i += 4) {
                 let tempx = getCoordinates(paddedImage, i).x;
                 let tempy = getCoordinates(paddedImage, i).y;
@@ -48,6 +48,20 @@ function interpolate(inputImage, xCoord, yCoord, type) {
             pixelValues.green = interpolatedRedVal;
             break;
         case "bicubic":
+            let paddedImage = new ImageData(2 + inputImage.width + 2, 2 + inputImage.height + 2);
+            for(let i = 0; i < paddedImage.data.length; i += 4) {
+                let tempx = getCoordinates(paddedImage, i).x;
+                let tempy = getCoordinates(paddedImage, i).y;
+
+                tempindex = getIndex(inputImage,tempx, tempy);
+
+                if(tempx > 2 && tempx < (paddedImage.width - 2) && tempy > 2 && tempy < (paddedImage.height - 2)) {
+                    paddedImage.data[i + 0] = inputImage[index + 0];
+                    paddedImage.data[i + 1] = inputImage[index + 1];
+                    paddedImage.data[i + 2] = inputImage[index + 2];
+                    paddedImage.data[i + 3] = 255;
+                }
+            }
             break;
 
         default:
