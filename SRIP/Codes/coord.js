@@ -12,7 +12,7 @@ function getCoordinates(imageData, index) {
     return {
         x : x,
         y : y
-    }
+    };
 }
 
 /**
