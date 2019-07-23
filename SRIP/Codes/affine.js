@@ -7,7 +7,7 @@
  */
 
 function translate(inputImage, xOffset, yOffset){
-    outputImage = new ImageData(inputImage.width + Math.abs(xOffset), inputImage.height + Math.abs(yOffset));
+    let outputImage = new ImageData(inputImage.width + Math.abs(xOffset), inputImage.height + Math.abs(yOffset));
 
     for(let i = 0; i < outputImage.data.length; i += 4){
         // Coordinates from top left corner
@@ -33,7 +33,7 @@ function translate(inputImage, xOffset, yOffset){
  * @param {number} angle
  */
 function rotate(inputImage, angle, interpolType){
-    outputImage = new ImageData(inputImage.width, inputImage.height);
+    let outputImage = new ImageData(inputImage.width, inputImage.height);
 
     for(let i = 0; i < outputImage.data.length; i += 4){
         // Coordinates from top left corners
@@ -41,7 +41,7 @@ function rotate(inputImage, angle, interpolType){
         let x = coord.x;
         let y = coord.y;
 
-        originalCoord = new Object();
+        let originalCoord = new Object();
 
         originalCoord.x = Math.cos(angle) * x + Math.sin(angle) * y;
         originalCoord.y = Math.sin(angle) * x + Math.cos(angle) * y;
