@@ -32,7 +32,7 @@ function translate(inputImage, xOffset, yOffset){
  * @param {ImageData} inputImage
  * @param {number} angle
  */
-function rotate(inputImage, angle){
+function rotate(inputImage, angle, interpolType){
     outputImage = new ImageData(inputImage.width, inputImage.height);
 
     for(let i = 0; i < outputImage.data.length; i += 4){
@@ -55,7 +55,7 @@ function rotate(inputImage, angle){
             pixelvalues.green = inputImage.data[index + 1];
             pixelvalues.blue = inputImage.data[index + 2];
         } else{
-            pixelvalues = interpolate(inputImage, originalCoord.x, originalCoord.y, type);
+            pixelvalues = interpolate(inputImage, originalCoord.x, originalCoord.y, interpolType);
         }
 
         outputImage.data[i + 0] = pixelvalues.red;
