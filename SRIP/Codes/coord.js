@@ -10,8 +10,8 @@ function getCoordinates(imageData, index) {
     let x = index % (imageData.data.width * 4);
     let y = index / (imageData.data.width * 4);
     return {
-        x : x,
-        y : y
+        x,
+        y
     };
 }
 
