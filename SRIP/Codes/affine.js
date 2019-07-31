@@ -82,6 +82,8 @@ function scale(inputImage, toUpScale, scaleFactor, interpolType) {
     let origCoord = new Object();
     let currCoord = new Object();
 
+    let tempIndex = 0;
+
     if(toUpScale) {
         for(let i = 0; i <= outputImage.data.length; i += 4) {
     
@@ -89,7 +91,7 @@ function scale(inputImage, toUpScale, scaleFactor, interpolType) {
             origCoord = {
                 x : currCoord.x / Math.pow(2, scaleFactor),
                 y : currCoord.y / Math.pow(2, scaleFactor)
-            }
+            };
             if(origCoord.x % 1 === 0 && origCoord.y % 1 === 0) {
                 let tempIndex = getIndex(inputImage, origCoord.x, origCoord.y);
                 outputImage[i + 0] = inputImage[tempIndex + 0];
