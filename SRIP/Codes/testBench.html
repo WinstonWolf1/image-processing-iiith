@@ -15,6 +15,11 @@
     <!-- Bootstrap CDN -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 
+    <!-- imgAreaSelect -->
+    <link rel="stylesheet" type="text/css" href="../Libraries/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
+    <script type="text/javascript" src="../Libraries/jquery.imgareaselect-0.9.10/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../Libraries/jquery.imgareaselect-0.9.10/scripts/jquery.imgareaselect.pack.js"></script>
+
 
     <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
 </head>
@@ -36,34 +41,44 @@
                 <br>
                 <div class="">
                     <div class="radio">
-                        <input type="radio" name="operation" id="affineRadio"><label for="affineRadio">Affine</label>
+                        <input type="radio" name="operation" id="affineRadio"> <label for="affineRadio">Affine</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="pointRadio"><label for="pointRadio">Point</label>
+                        <input type="radio" name="operation" id="pointRadio"> <label for="pointRadio">Point</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="histogramRadio"><label for="histogramRadio">Histogram</label>
+                        <input type="radio" name="operation" id="histogramRadio"> <label for="histogramRadio">Histogram</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="neighbourRadio"><label for="neighbourRadio">Neighbourhood</label>
+                        <input type="radio" name="operation" id="neighbourRadio"> <label for="neighbourRadio">Neighbourhood</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="fourierRadio"><label for="fourierRadio">Fourier Transform</label>
+                        <input type="radio" name="operation" id="fourierRadio"> <label for="fourierRadio">Fourier Transform</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="morphRadio"><label for="morphRadio">Morphological</label>
+                        <input type="radio" name="operation" id="morphRadio"> <label for="morphRadio">Morphological</label>
                     </div>
                     <div class="radio">
-                        <input type="radio" name="operation" id="segmentRadio"><label for="segmentRadio">Segmentation</label>
+                        <input type="radio" name="operation" id="segmentRadio"> <label for="segmentRadio">Segmentation</label>
                     </div>
                 </div>
             </div>
             <div class="col-8">
                 <div class="row">
-                    <div class="col"<canvas id="inputImCanvas"></canvas>></div>
-                    <div class="col"<canvas id="outputImCanvas"></canvas>></div>
+                    <div class="col"><canvas id="inputImCanvas"></canvas></div>
+                    <div class="col"><canvas id="outputImCanvas"></canvas></div>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-7 border" id="pipelineDiv">
+                <label for="pipelineRange">Pipeline</label>
+                <input type="range" class="custom-range" name="pipeline" min="0" max="0" id="pipelineRange">
+            </div>
+        </div>
+        <div class="d-none" id="mosaic-diplay">
+            <img src="Mosaic.png" alt="Mosaic">
         </div>
     </div>
 

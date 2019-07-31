@@ -9,4 +9,9 @@
 #inputImCanvas, #outputImCanvas {
     width: 26vw;
     height: 26vw;
+    border-style: solid;
+}
+
+#pipelineDiv {
+    height: 20vh;
 }
