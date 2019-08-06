@@ -9,14 +9,17 @@
 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
+    <!-- Font from Google -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700&display=swap" rel="stylesheet">
+
     <!-- Bootstrap Offline -->
-    <link rel="stylesheet" href="../Libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="../Libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
 
     <!-- Bootstrap CDN -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- imgAreaSelect -->
-    <link rel="stylesheet" type="text/css" href="../Libraries/jquery.imgareaselect-0.9.10/css/imgareaselect-default.css" />
+    <link rel="stylesheet" type="text/css" href="../Libraries/jquery.imgareaselect-0.9.10/css/imgareaselect-animated.css" />
     <script type="text/javascript" src="../Libraries/jquery.imgareaselect-0.9.10/scripts/jquery.min.js"></script>
     <script type="text/javascript" src="../Libraries/jquery.imgareaselect-0.9.10/scripts/jquery.imgareaselect.pack.js"></script>
 
@@ -26,20 +29,28 @@
 
 <body>
     <div id="ContentBox" class="container-fluid">
+        <!--Heading-->
+        <div id="topbar">
+            <div id="iiitLogo"><img src="res/iiit.png" width="100" height="70"></div>
+            <div id="heading"><h1>Virtual Lab for Image Processing</h1></div>
+            <div id="subHeading"><h3>Image Processing Test Bench</h3></div>
+        </div>
         <div class="row">
             <div id="controlBox" class="col-4">
-                <h3 class="">Image Processing Test Bench</h3>
+                <h3>Image Processing Test Bench</h3>
                 <br>
                 <div id="instructionBox">
                     <p id="instructionText" class="text-center">Start the experiment by clicking on "Select Image" and selecting an image from the mosaic</p>
                 </div>
                 <br>
-                <button type="button" class="btn btn-primary">Select Image</button>
-                <button type="button" class="btn btn-primary">Reset</button>
-                <button type="button" class="btn btn-primary">Run</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-modal="#MosaicImgModal" id="selectImgButton" onclick="selectImage()">Select Image</button>
+                    <button type="button" class="btn btn-primary">Reset</button>
+                    <button type="button" class="btn btn-primary">Run</button>
+                </div>
                 <br>
                 <br>
-                <div class="">
+                <div class="radioControlBox">
                     <div class="radio">
                         <input type="radio" name="operation" id="affineRadio"> <label for="affineRadio">Affine</label>
                     </div>
@@ -65,8 +76,8 @@
             </div>
             <div class="col-8">
                 <div class="row">
-                    <div class="col"><canvas id="inputImCanvas"></canvas></div>
-                    <div class="col"><canvas id="outputImCanvas"></canvas></div>
+                    <div class="col" id="inputImCanvasDiv"><canvas id="inputImCanvas"></canvas></div>
+                    <div class="col" id="outputImCanvasDiv"><canvas id="outputImCanvas"></canvas></div>
                 </div>
             </div>
         </div>
@@ -77,19 +88,37 @@
                 <input type="range" class="custom-range" name="pipeline" min="0" max="0" id="pipelineRange">
             </div>
         </div>
-        <div class="d-none" id="mosaic-diplay">
-            <img src="Mosaic.png" alt="Mosaic">
+
+        <!-- <div class="d-none" id="mosaic-diplay">
+        </div> -->
+
+    </div>
+
+    <!-- Image select modal -->
+    <div id="MosaicImgModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="imageSelectModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="imageSelectModalLabel">Image Select</h4>
+                    <button class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+
+                <div class="modal-body">
+                    <img src="res/Mosaic.png" id="mosaicSelectImage" alt="Mosaic for image selection">
+                </div>
+
+            </div>
         </div>
     </div>
 
     <!-- Bootstrap Offline -->
-    <script src="../Libraries/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="../Libraries/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="../Libraries/jquery-3.4.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="../Libraries/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script> -->
 
     <!-- Bootstrap CDN -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
     <script src='testBench.js'></script>
