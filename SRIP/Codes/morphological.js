@@ -1,6 +1,6 @@
 /**
  *
- * @param {ImageDate} inputImage
+ * @param {ImageData} inputImage
  * @param {string} strElementType
  * @param {number} strElementSize
  */
