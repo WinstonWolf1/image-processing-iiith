@@ -7,8 +7,8 @@
  * @returns {Object}
  */
 function getCoordinates(imageData, index) {
-    let x = index % (imageData.data.width * 4);
-    let y = index / (imageData.data.width * 4);
+    let x = index % (imageData.width * 4);
+    let y = index / (imageData.width * 4);
     return {
         x,
         y,
