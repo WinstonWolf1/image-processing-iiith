@@ -31,16 +31,17 @@ function strAvgFilter(inputImage, filterSize) {
         if(tempCoord.x >= paddingWidth && tempCoord.x < (paddedImage.width - paddingWidth)) {
             origIndex = getIndex(outputImage, tempCoord.x, tempCoord.y);
             let sum = 0;
+            let neighbourPixels = {};
             switch (filterSize) {
                 case 3:
-                    let neighbourPixels = get3neighbourPixels(paddedImage, i);
+                    neighbourPixels = get3neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 +
                               neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 +
                               neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22;
                     sum /= 9;
                     break;
                 case 5:
-                    let neighbourPixels = get5neighbourPixels(paddedImage, i);
+                    neighbourPixels = get5neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 
@@ -49,7 +50,7 @@ function strAvgFilter(inputImage, filterSize) {
                     sum /= 25;
                     break;
                 case 7:
-                    let neighbourPixels = get7neighbourPixels(paddedImage, i);
+                    neighbourPixels = get7neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04 + neighbourPixels.p05 * weights.w05 + neighbourPixels.p06 * weights.w06
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14 + neighbourPixels.p15 * weights.w15 + neighbourPixels.p16 * weights.w16
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 + neighbourPixels.p25 * weights.w25 + neighbourPixels.p26 * weights.w26 
@@ -96,6 +97,7 @@ function triangleFilter(inputImage, filterSize) {
         if(tempCoord.x >= paddingWidth && tempCoord.x < (paddedImage.width - paddingWidth)) {
             origIndex = getIndex(outputImage, tempCoord.x, tempCoord.y);
             let sum = 0;
+            let neighbourPixels = {};
             switch (filterSize) {
                 case 3:
                     weights = {
@@ -103,7 +105,7 @@ function triangleFilter(inputImage, filterSize) {
                         w10 : 1, w11 : 1, w12 : 1,
                         w20 : 1, w21 : 1, w22 : 1
                     };
-                    let neighbourPixels = get3neighbourPixels(paddedImage, i);
+                    neighbourPixels = get3neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 +
                               neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 +
                               neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22;
@@ -117,7 +119,7 @@ function triangleFilter(inputImage, filterSize) {
                         w30 : 2, w31 : 4, w32 : 6, w33 : 4, w34 : 2,
                         w40 : 1, w41 : 2, w42 : 3, w43 : 2, w44 : 1
                     };
-                    let neighbourPixels = get5neighbourPixels(paddedImage, i);
+                    neighbourPixels = get5neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 
@@ -135,7 +137,7 @@ function triangleFilter(inputImage, filterSize) {
                         w50 : 1, w51 : 1, w52 : 1, w53 : 1, w54 : 1, w55 : 1, w56 : 1,
                         w60 : 1, w61 : 1, w62 : 1, w63 : 1, w64 : 1, w65 : 1, w66 : 1
                     };
-                    let neighbourPixels = get7neighbourPixels(paddedImage, i);
+                    neighbourPixels = get7neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04 + neighbourPixels.p05 * weights.w05 + neighbourPixels.p06 * weights.w06
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14 + neighbourPixels.p15 * weights.w15 + neighbourPixels.p16 * weights.w16
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 + neighbourPixels.p25 * weights.w25 + neighbourPixels.p26 * weights.w26 
@@ -183,6 +185,7 @@ function triangleFilter(inputImage, filterSize) {
         if(tempCoord.x >= paddingWidth && tempCoord.x < (paddedImage.width - paddingWidth)) {
             origIndex = getIndex(outputImage, tempCoord.x, tempCoord.y);
             let sum = 0;
+            let neighbourPixels = {};
             switch (filterSize) {
                 case 3:
                     weights = {
@@ -190,7 +193,7 @@ function triangleFilter(inputImage, filterSize) {
                         w10 : 2, w11 : 4, w12 : 2,
                         w20 : 1, w21 : 2, w22 : 1
                     };
-                    let neighbourPixels = get3neighbourPixels(paddedImage, i);
+                    neighbourPixels = get3neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 +
                               neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 +
                               neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22;
@@ -204,7 +207,7 @@ function triangleFilter(inputImage, filterSize) {
                         w30 : 4, w31 : 16, w32 : 26, w33 : 16, w34 : 4,
                         w40 : 1, w41 :  4, w42 :  7, w43 :  4, w44 : 1
                     };
-                    let neighbourPixels = get5neighbourPixels(paddedImage, i);
+                    neighbourPixels = get5neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 
@@ -222,7 +225,7 @@ function triangleFilter(inputImage, filterSize) {
                         w50 : 0, w51 :  3, w52 : 13, w53 :  22, w54 : 13, w55 :  3, w56 : 0,
                         w60 : 0, w61 :  0, w62 :  1, w63 :   2, w64 :  1, w65 :  0, w66 : 0
                     };
-                    let neighbourPixels = get7neighbourPixels(paddedImage, i);
+                    neighbourPixels = get7neighbourPixels(paddedImage, i);
                     sum = neighbourPixels.p00 * weights.w00 + neighbourPixels.p01 * weights.w01 + neighbourPixels.p02 * weights.w02 + neighbourPixels.p03 * weights.w03 + neighbourPixels.p04 * weights.w04 + neighbourPixels.p05 * weights.w05 + neighbourPixels.p06 * weights.w06
                         + neighbourPixels.p10 * weights.w10 + neighbourPixels.p11 * weights.w11 + neighbourPixels.p12 * weights.w12 + neighbourPixels.p13 * weights.w13 + neighbourPixels.p14 * weights.w14 + neighbourPixels.p15 * weights.w15 + neighbourPixels.p16 * weights.w16
                         + neighbourPixels.p20 * weights.w20 + neighbourPixels.p21 * weights.w21 + neighbourPixels.p22 * weights.w22 + neighbourPixels.p23 * weights.w23 + neighbourPixels.p24 * weights.w24 + neighbourPixels.p25 * weights.w25 + neighbourPixels.p26 * weights.w26 

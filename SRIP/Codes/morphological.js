@@ -157,9 +157,10 @@ function morphologicalDilation(inputImage, strElementType, strElementSize) {
         tempCoord = getCoordinates(outputImage, i);
         if(tempCoord.x >= boundarySize && tempCoord.x < loopLimit) {
             let maxVal = 0;
+            let neighbourPixels = {};
             switch (filterSize) {
                 case 3:
-                    let neighbourPixels = get3neighbourPixels(paddedImage, i);
+                    neighbourPixels = get3neighbourPixels(paddedImage, i);
 
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12;
@@ -169,7 +170,7 @@ function morphologicalDilation(inputImage, strElementType, strElementSize) {
 
                     break;
                 case 5:
-                    let neighbourPixels = get5neighbourPixels(paddedImage, i);
+                    neighbourPixels = get5neighbourPixels(paddedImage, i);
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02; neighbourPixels.p03 *= weights.w03; neighbourPixels.p04 *= weights.w04;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12; neighbourPixels.p13 *= weights.w13; neighbourPixels.p14 *= weights.w14;
                     neighbourPixels.p20 *= weights.w20; neighbourPixels.p21 *= weights.w21; neighbourPixels.p22 *= weights.w22; neighbourPixels.p23 *= weights.w23; neighbourPixels.p24 *= weights.w24;
@@ -179,7 +180,7 @@ function morphologicalDilation(inputImage, strElementType, strElementSize) {
                     maxVal = Math.max(...neighbourPixels.values);
                     break;
                 case 7:
-                    let neighbourPixels = get7neighbourPixels(paddedImage, i);
+                    neighbourPixels = get7neighbourPixels(paddedImage, i);
 
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02; neighbourPixels.p03 *= weights.w03; neighbourPixels.p04 *= weights.w04; neighbourPixels.p05 *= weights.w05;  neighbourPixels.p06 *= weights.w06;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12; neighbourPixels.p13 *= weights.w13; neighbourPixels.p14 *= weights.w14; neighbourPixels.p15 *= weights.w15;  neighbourPixels.p16 *= weights.w16;
@@ -371,9 +372,10 @@ function morphologicalErosion(inputImage, strElementType, strElementSize) {
         tempCoord = getCoordinates(outputImage, i);
         if(tempCoord.x >= boundarySize && tempCoord.x < loopLimit) {
             let maxVal = 0;
+            let neighbourPixels = {};
             switch (filterSize) {
                 case 3:
-                    let neighbourPixels = get3neighbourPixels(paddedImage, i);
+                    neighbourPixels = get3neighbourPixels(paddedImage, i);
 
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12;
@@ -383,7 +385,7 @@ function morphologicalErosion(inputImage, strElementType, strElementSize) {
 
                     break;
                 case 5:
-                    let neighbourPixels = get5neighbourPixels(paddedImage, i);
+                    neighbourPixels = get5neighbourPixels(paddedImage, i);
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02; neighbourPixels.p03 *= weights.w03; neighbourPixels.p04 *= weights.w04;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12; neighbourPixels.p13 *= weights.w13; neighbourPixels.p14 *= weights.w14;
                     neighbourPixels.p20 *= weights.w20; neighbourPixels.p21 *= weights.w21; neighbourPixels.p22 *= weights.w22; neighbourPixels.p23 *= weights.w23; neighbourPixels.p24 *= weights.w24;
@@ -393,7 +395,7 @@ function morphologicalErosion(inputImage, strElementType, strElementSize) {
                     maxVal = Math.max(...neighbourPixels.values);
                     break;
                 case 7:
-                    let neighbourPixels = get7neighbourPixels(paddedImage, i);
+                    neighbourPixels = get7neighbourPixels(paddedImage, i);
 
                     neighbourPixels.p00 *= weights.w00; neighbourPixels.p01 *= weights.w01; neighbourPixels.p02 *= weights.w02; neighbourPixels.p03 *= weights.w03; neighbourPixels.p04 *= weights.w04; neighbourPixels.p05 *= weights.w05;  neighbourPixels.p06 *= weights.w06;
                     neighbourPixels.p10 *= weights.w10; neighbourPixels.p11 *= weights.w11; neighbourPixels.p12 *= weights.w12; neighbourPixels.p13 *= weights.w13; neighbourPixels.p14 *= weights.w14; neighbourPixels.p15 *= weights.w15;  neighbourPixels.p16 *= weights.w16;

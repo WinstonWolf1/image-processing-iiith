@@ -8,9 +8,10 @@
 function interpolate(inputImage, xCoord, yCoord, type) {
     let pixelValues = new Object();
     pixelValues.alpha = 255;
+    let index = 0;
     switch (type) {
         case "nearest":
-            let index = getIndex(
+            index = getIndex(
                 inputImage,
                 Math.round(xCoord),
                 Math.round(yCoord)
@@ -44,7 +45,7 @@ function interpolate(inputImage, xCoord, yCoord, type) {
             }
             let tempx = xCoord + 1;
             let tempy = yCoord + 1;
-            let index = getIndex(
+            index = getIndex(
                 paddedImage,
                 Math.floor(tempx),
                 Math.floor(tempy)
