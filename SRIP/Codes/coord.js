@@ -7,11 +7,13 @@
  * @returns {Object}
  */
 function getCoordinates(imageData, index) {
-    let x = index % (imageData.width * 4);
+    let x = (index % (imageData.width * 4)) / 4;
     let y = index / (imageData.width * 4);
+    x = x | 0;
+    y = y | 0;
     return {
         x,
-        y,
+        y
     };
 }
 
@@ -22,5 +24,5 @@ function getCoordinates(imageData, index) {
  * @param {number} yCoord
  */
 function getIndex(imageData, xCoord, yCoord) {
-    return (yCoord * imageData.width + xCoord) * 4;
+    return (xCoord + yCoord * imageData.width) * 4;
 }
