@@ -8,18 +8,23 @@
 
 function translate(inputImage, xOffset, yOffset) {
     let outputImage = new ImageData(
-        inputImage.width + Math.abs(xOffset),
-        inputImage.height + Math.abs(yOffset)
+        inputImage.width,
+        inputImage.height
     );
 
     for (let i = 0; i < outputImage.data.length; i += 4) {
         // Coordinates from top left corner
         let coord = getCoordinates(outputImage, i);
         if (coord.x - xOffset >= 0 && coord.y - yOffset >= 0) {
-            let index = getIndex(inputImage, x, y);
+            let index = getIndex(inputImage, coord.x - xOffset, coord.y - yOffset);
             outputImage.data[i + 0] = inputImage.data[index + 0];
             outputImage.data[i + 1] = inputImage.data[index + 1];
             outputImage.data[i + 2] = inputImage.data[index + 2];
+            outputImage.data[i + 3] = 255;
+        } else {
+            outputImage.data[i + 0] = 0;
+            outputImage.data[i + 1] = 0;
+            outputImage.data[i + 2] = 0;
             outputImage.data[i + 3] = 255;
         }
     }
