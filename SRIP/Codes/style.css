@@ -36,7 +36,7 @@
     text-align: center;
 }
 
-#instructionBox {
+.instructionBox {
     width: 28vw;
     border-style: dashed;
     margin: auto;
@@ -51,6 +51,48 @@
 .radioControlBox {
     text-align: left;
     transform: translateX(3em);
+}
+
+/* #startControls {
+    display: none;
+} */
+
+#affineControls {
+    display: none;
+}
+
+#pointControls {
+    display: none;
+}
+
+#morphControls {
+    display: none;
+}
+
+#histogramControls {
+    display: none;
+}
+
+#neighbourhoodControls {
+    display: none;
+}
+
+#fourierControls {
+    display: none;
+}
+
+#segmentationControls {
+    display: none;
+}
+
+.custom-range {
+    width: 100%;
+    height: calc(1rem + 0.4rem);
+    padding: 0;
+    background-color: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 #inputImCanvasDiv,

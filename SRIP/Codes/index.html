@@ -65,94 +65,162 @@
                 <div id="controlBox" class="col-4">
                     <h3>Image Processing Test Bench</h3>
                     <br />
-                    <div id="instructionBox">
-                        <p id="instructionText" class="text-center">
-                            Start the experiment by clicking on "Select Image"
-                            and selecting an image from the mosaic
-                        </p>
+                    <div id="startControls">
+                        <div class="instructionBox">
+                            <p id="instructionText" class="text-center">
+                                Start the experiment by clicking on "Select Image"
+                                and selecting an image from the mosaic
+                            </p>
+                        </div>
+                        <br />
+                        <div class="btn-group">
+                            <button
+                                type="button"
+                                class="btn btn-primary"
+                                data-toggle="modal"
+                                data-modal="#MosaicImgModal"
+                                id="selectImgButton"
+                                onclick="selectImage()"
+                            >
+                                Select Image
+                            </button>
+                            <button
+                                type="button"
+                                class="btn btn-primary disabled"
+                                id="resetButton"
+                                onclick="reset()"
+                                disabled
+                            >
+                                Reset
+                            </button>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="radioControlBox">
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="affineRadio"
+                                    onclick="testSuite()"
+                                />
+                                <label for="affineRadio">Affine</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="pointRadio"
+                                />
+                                <label for="pointRadio">Point</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="histogramRadio"
+                                />
+                                <label for="histogramRadio">Histogram</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="neighbourRadio"
+                                />
+                                <label for="neighbourRadio">Neighbourhood</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="fourierRadio"
+                                />
+                                <label for="fourierRadio">Fourier Transform</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="morphRadio"
+                                />
+                                <label for="morphRadio">Morphological</label>
+                            </div>
+                            <div class="radio">
+                                <input
+                                    type="radio"
+                                    name="operation"
+                                    id="segmentRadio"
+                                />
+                                <label for="segmentRadio">Segmentation</label>
+                            </div>
+                        </div>
                     </div>
-                    <br />
-                    <div class="btn-group">
-                        <button
-                            type="button"
-                            class="btn btn-primary"
-                            data-toggle="modal"
-                            data-modal="#MosaicImgModal"
-                            id="selectImgButton"
-                            onclick="selectImage()"
-                        >
-                            Select Image
-                        </button>
-                        <button
-                            type="button"
-                            class="btn btn-primary disabled"
-                            id="resetButton"
-                            onclick="reset()"
-                            disabled
-                        >
-                            Reset
-                        </button>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="radioControlBox">
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="affineRadio"
-                            />
-                            <label for="affineRadio">Affine</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="pointRadio"
-                            />
-                            <label for="pointRadio">Point</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="histogramRadio"
-                            />
-                            <label for="histogramRadio">Histogram</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="neighbourRadio"
-                            />
-                            <label for="neighbourRadio">Neighbourhood</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="fourierRadio"
-                            />
-                            <label for="fourierRadio">Fourier Transform</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="morphRadio"
-                            />
-                            <label for="morphRadio">Morphological</label>
-                        </div>
-                        <div class="radio">
-                            <input
-                                type="radio"
-                                name="operation"
-                                id="segmentRadio"
-                            />
-                            <label for="segmentRadio">Segmentation</label>
+                    <div id="affineControls">
+                        <div class="instructionBox"></div>
+                        <div class="radioControlBox">
+                            <div>
+                                <div class="radio">
+                                    <input type="radio" name="affineTransform" id="translateRadio"/>
+                                    <label for="translateRadio">Translate</label>
+                                    <br>
+                                    <label for="translateRangeX">X Translation</label>
+                                    <input type="range" class="custom-range" min="-300" max="300" step="1" value="0" class="slider" id="translateRangeX">
+                                    <label for="translateRangeY">Y Translation</label>
+                                    <input type="range"  class="custom-range" min="-300" max="300" step="1"value="0" class="slider" id="translateRangeY">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="radio">
+                                    <input type="radio" name="affineTransform" id="rotateRadio"/>
+                                    <label for="rotateRadio">Rotate</label>
+                                    <label for="rotateTransformAngle">Rotate Angle</label>
+                                    <input type="range" class="custom-range" min="-180" max="180" step="1" name="affineTransform" id="rotateTransformAngle">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="radio">
+                                    <input type="radio" name="affineTransform" id="scaleRadio"/>
+                                    <label for="scaleRadio">Scale</label>
+                                    <label for=""></label>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div id="pointControls">
+                        <div class="btn-group">
+                            <button class="btn">Linear</button>
+                            <button class="btn">Non-Linear</button>
+                            <button class="btn">Clipping</button>
+                            <button class="btn">Window</button>
+                        </div>
+                        <div class="controlBox">
+                            <div id="linearControls">
+                                <input type="range" name="slope" min="-57.3" max="57.3" id="slopeLinearPointControl">
+                                <input type="range" name="offset" min="-255" max="255" id="offsetLinearPointControl">
+                            </div>
+                            <div id="nonLinearControls">
+                                <input type="range" name="slope" id="slopeNonLinearPointControl">
+                            </div>
+                            <div id="ClippingControls">
+                                <input type="range" name="windowStart" min="0" max="255" id="windowStartClippingPointControl">
+                                <input type="range" name="windowEnd" min="0" max="255" id="windowEndClippingPointControl">
+                                <input type="range" name="slope" min="0" max="1" step="0.01" id="slopeClippingPointControl">
+                            </div>
+                            <div id="WindowControls">
+                                <input type="range" name="windowStart" min="0" max="255" id="windowStartWindowPointControl">
+                                <input type="range" name="windowEnd" min="0" max="255" id="windowEndWindowPointControl">
+                                <input type="range" name="slope" min="0" max="1" step="0.01" id="slopeWindowPointControl">
+                            </div>
+                            <input type="range" name="" id="">
+                        </div>
+                    </div>
+                    <div id="morphControls"></div>
+                    <div id="histogramControls"></div>
+                    <div id="neighbourhoodControls"></div>
+                    <div id="fourierControls"></div>
+                    <div id="segmentationControls"></div>
+
                     <div class="btn-group">
                         <button
                             type="button"
@@ -243,5 +311,17 @@
         ></script>
 
         <script src="testBench.js"></script>
+
+        <!-- Function Libraries -->
+        <script src="interpolate.js"></script>
+        <script src="coord.js"></script>
+        <script src="affine.js"></script>
+        <script src="histogram.js"></script>
+        <script src="morphological.js"></script>
+        <script src="neighbourhood.js"></script>
+        <script src="point.js"></script>
+        <script src="projectTest.js"></script>
+
+
     </body>
 </html>
