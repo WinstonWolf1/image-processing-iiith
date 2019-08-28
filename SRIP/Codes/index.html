@@ -196,26 +196,66 @@
                         </div>
                         <div class="controlBox">
                             <div id="linearControls">
-                                <input type="range" name="slope" min="-57.3" max="57.3" id="slopeLinearPointControl">
-                                <input type="range" name="offset" min="-255" max="255" id="offsetLinearPointControl">
+                                <input type="range" class="custom-range" name="slope" min="-57.3" max="57.3" id="slopeLinearPointControl">
+                                <input type="range" class="custom-range" name="offset" min="-255" max="255" id="offsetLinearPointControl">
                             </div>
                             <div id="nonLinearControls">
-                                <input type="range" name="slope" id="slopeNonLinearPointControl">
+                                <input type="range" class="custom-range" name="slope" id="slopeNonLinearPointControl">
                             </div>
                             <div id="ClippingControls">
-                                <input type="range" name="windowStart" min="0" max="255" id="windowStartClippingPointControl">
-                                <input type="range" name="windowEnd" min="0" max="255" id="windowEndClippingPointControl">
-                                <input type="range" name="slope" min="0" max="1" step="0.01" id="slopeClippingPointControl">
+                                <input type="range" class="custom-range" name="windowStart" min="0" max="255" id="windowStartClippingPointControl">
+                                <input type="range" class="custom-range" name="windowEnd" min="0" max="255" id="windowEndClippingPointControl">
+                                <input type="range" class="custom-range" name="slope" min="0" max="1" step="0.01" id="slopeClippingPointControl">
                             </div>
                             <div id="WindowControls">
-                                <input type="range" name="windowStart" min="0" max="255" id="windowStartWindowPointControl">
-                                <input type="range" name="windowEnd" min="0" max="255" id="windowEndWindowPointControl">
-                                <input type="range" name="slope" min="0" max="1" step="0.01" id="slopeWindowPointControl">
+                                <input type="range" class="custom-range" name="windowStart" min="0" max="255" id="windowStartWindowPointControl">
+                                <input type="range" class="custom-range" name="windowEnd" min="0" max="255" id="windowEndWindowPointControl">
+                                <input type="range" class="custom-range" name="slope" min="0" max="1" step="0.01" id="slopeWindowPointControl">
                             </div>
-                            <input type="range" name="" id="">
+                            <input type="range" class="custom-range" name="" id="">
                         </div>
                     </div>
-                    <div id="morphControls"></div>
+                    <div id="morphControls">
+                        <div class="controlBox">
+                            <div>
+                                Select Operation:
+                                <br>
+                                <input type="radio" name="dilation" id="dilationMorphControl">
+                                <label for="dilationMorphControl">Dilation</label>
+                                <input type="radio" name="erosion" id="erosionMorphControl">
+                                <label for="erosionMorphControl">Erosion</label>
+                                <input type="radio" name="closing" id="closingMorphControl">
+                                <label for="closingMorphControl">Closing</label>
+                                <input type="radio" name="opening" id="openingMorphControl">
+                                <label for="openingMorphControl">Opening</label>
+                            </div>
+                            <div>
+                                Structuring Element Properties:
+                                <div class="row">
+                                    <div class="col w-50">
+                                        Shape
+                                        <input type="radio" name="disc" id="discStrElementMorphControl">
+                                        <label for="discStrElementMorphControl">Disc</label>
+                                        <input type="radio" name="square" id="squareStrElementMorphControl">
+                                        <label for="squareStrElementMorphControl">Square</label>
+                                        <input type="radio" name="line" id="lineStrElementMorphControl">
+                                        <label for="lineStrElementMorphControl">Line</label>
+                                        <!-- <div id="lineStrElementParamMorphControl">
+                                            <b>Angle from horizontal</b><br>
+                                            <input type="radio" name="angle" value="0"> 0 degrees <br>
+                                            <input type="radio" name="angle" value="30" checked="">30 degrees <br>
+                                            <input type="radio" name="angle" value="60"> 60 degrees <br>
+                                            <input type="radio" name="angle" value="90"> 90 degrees <br>
+                                        </div> -->
+                                    </div>
+                                    <div class="col w-50">
+                                        <input type="radio" name="" id="">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
                     <div id="histogramControls"></div>
                     <div id="neighbourhoodControls"></div>
                     <div id="fourierControls"></div>
