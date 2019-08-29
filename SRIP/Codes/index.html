@@ -256,8 +256,44 @@
                             
                         </div>
                     </div>
-                    <div id="histogramControls"></div>
-                    <div id="neighbourhoodControls"></div>
+                    <div id="histogramControls">
+                        <b>Processing Options:</b>
+                        <input type="radio" name="globalEqualisation" id="globalHistEqualisationHistControls">
+                        <label for="globalHistEqualisationHistControls">Global Histogram Equalisation</label>
+                        <input type="radio" name="adaptiveEqualisation" id="adaptiveHistEqualisationHistControls">
+                        <label for="adaptiveHistEqualisationHistControls">Adaptive Histogram Equalisation</label>
+                        <input type="radio" name="histFilter" id="FilterHistogramHistControls">
+                        <label for="FilterHistogramHistControls">Filter Histogram</label>
+                    </div>
+                    <div id="neighbourhoodControls">
+                        <div class="row">
+                            <div class="col">
+                                <b>Linear Filtering</b>
+                                <input type="radio" name="filterType" value="strAvg" id="strAvgLinFilterNeighControls">
+                                <label for="strAvgLinFilterNeighControls">Straight Average</label>
+                                <input type="radio" name="filterType" value="triangular" id="triangularLinFilterNeighControls">
+                                <label for="triangularLinFilterNeighControls">Triangular Filter</label>
+                                <input type="radio" name="filterType" value="gaussAvg" id="GaussianLinFilterNeighControls">
+                                <label for="GaussianLinFilterNeighControls">Gaussian Filter</label>
+                            </div>
+                            <div class="col">
+                                <b>Size of Neig'hood</b>
+                                <input type="radio" name="filterSize" id="3LinFilterSizeNeighControls" value="3">
+                                <label for="3LinFilterSizeNeighControls">3 * 3</label>
+                                <input type="radio" name="filterSize" id="5LinFilterSizeNeighControls" value="5">
+                                <label for="5LinFilterSizeNeighControls">5 * 5</label>
+                                <input type="radio" name="filterSize" id="7LinFilterSizeNeighControls" value="7">
+                                <label for="7LinFilterSizeNeighControls">7 * 7</label>
+                            </div>
+                        </div>
+                        <div>
+                            <b>Non-Linear Operations</b>
+                            <input type="radio" name="filterType" id="medianNonLinFilterNeighControls" value="median">
+                            <label for="medianNonLinFilterNeighControls">Median</label>
+                            <input type="radio" name="filterType" id="unsharpNonLinFilterNeighControls" value="unsharp">
+                            <label for="unsharpNonLinFilterNeighControls">Unsharp</label>
+                        </div>
+                    </div>
                     <div id="fourierControls"></div>
                     <div id="segmentationControls"></div>
 
