@@ -257,45 +257,84 @@
                         </div>
                     </div>
                     <div id="histogramControls">
-                        <b>Processing Options:</b>
-                        <input type="radio" name="globalEqualisation" id="globalHistEqualisationHistControls">
-                        <label for="globalHistEqualisationHistControls">Global Histogram Equalisation</label>
-                        <input type="radio" name="adaptiveEqualisation" id="adaptiveHistEqualisationHistControls">
-                        <label for="adaptiveHistEqualisationHistControls">Adaptive Histogram Equalisation</label>
-                        <input type="radio" name="histFilter" id="FilterHistogramHistControls">
-                        <label for="FilterHistogramHistControls">Filter Histogram</label>
+                        <div class="controlBox">
+                            <b>Processing Options:</b>
+                            <input type="radio" name="globalEqualisation" id="globalHistEqualisationHistControls">
+                            <label for="globalHistEqualisationHistControls">Global Histogram Equalisation</label>
+                            <input type="radio" name="adaptiveEqualisation" id="adaptiveHistEqualisationHistControls">
+                            <label for="adaptiveHistEqualisationHistControls">Adaptive Histogram Equalisation</label>
+                            <input type="radio" name="histFilter" id="FilterHistogramHistControls">
+                            <label for="FilterHistogramHistControls">Filter Histogram</label>
+                        </div>
                     </div>
                     <div id="neighbourhoodControls">
-                        <div class="row">
-                            <div class="col">
-                                <b>Linear Filtering</b>
-                                <input type="radio" name="filterType" value="strAvg" id="strAvgLinFilterNeighControls">
-                                <label for="strAvgLinFilterNeighControls">Straight Average</label>
-                                <input type="radio" name="filterType" value="triangular" id="triangularLinFilterNeighControls">
-                                <label for="triangularLinFilterNeighControls">Triangular Filter</label>
-                                <input type="radio" name="filterType" value="gaussAvg" id="GaussianLinFilterNeighControls">
-                                <label for="GaussianLinFilterNeighControls">Gaussian Filter</label>
+                        <div class="controlBox">
+                            <div class="row">
+                                <div class="col">
+                                    <b>Linear Filtering</b>
+                                    <input type="radio" name="filterType" value="strAvg" id="strAvgLinFilterNeighControls">
+                                    <label for="strAvgLinFilterNeighControls">Straight Average</label>
+                                    <input type="radio" name="filterType" value="triangular" id="triangularLinFilterNeighControls">
+                                    <label for="triangularLinFilterNeighControls">Triangular Filter</label>
+                                    <input type="radio" name="filterType" value="gaussAvg" id="GaussianLinFilterNeighControls">
+                                    <label for="GaussianLinFilterNeighControls">Gaussian Filter</label>
+                                </div>
+                                <div class="col">
+                                    <b>Size of Neig'hood</b>
+                                    <input type="radio" name="filterSize" id="3LinFilterSizeNeighControls" value="3">
+                                    <label for="3LinFilterSizeNeighControls">3 * 3</label>
+                                    <input type="radio" name="filterSize" id="5LinFilterSizeNeighControls" value="5">
+                                    <label for="5LinFilterSizeNeighControls">5 * 5</label>
+                                    <input type="radio" name="filterSize" id="7LinFilterSizeNeighControls" value="7">
+                                    <label for="7LinFilterSizeNeighControls">7 * 7</label>
+                                </div>
                             </div>
-                            <div class="col">
-                                <b>Size of Neig'hood</b>
-                                <input type="radio" name="filterSize" id="3LinFilterSizeNeighControls" value="3">
-                                <label for="3LinFilterSizeNeighControls">3 * 3</label>
-                                <input type="radio" name="filterSize" id="5LinFilterSizeNeighControls" value="5">
-                                <label for="5LinFilterSizeNeighControls">5 * 5</label>
-                                <input type="radio" name="filterSize" id="7LinFilterSizeNeighControls" value="7">
-                                <label for="7LinFilterSizeNeighControls">7 * 7</label>
+                            <div>
+                                <b>Non-Linear Operations</b>
+                                <input type="radio" name="filterType" id="medianNonLinFilterNeighControls" value="median">
+                                <label for="medianNonLinFilterNeighControls">Median</label>
+                                <input type="radio" name="filterType" id="unsharpNonLinFilterNeighControls" value="unsharp">
+                                <label for="unsharpNonLinFilterNeighControls">Unsharp</label>
                             </div>
-                        </div>
-                        <div>
-                            <b>Non-Linear Operations</b>
-                            <input type="radio" name="filterType" id="medianNonLinFilterNeighControls" value="median">
-                            <label for="medianNonLinFilterNeighControls">Median</label>
-                            <input type="radio" name="filterType" id="unsharpNonLinFilterNeighControls" value="unsharp">
-                            <label for="unsharpNonLinFilterNeighControls">Unsharp</label>
                         </div>
                     </div>
-                    <div id="fourierControls"></div>
-                    <div id="segmentationControls"></div>
+                    <div id="fourierControls">
+                        <div class="controlBox">
+                            <b>Inverse Fourier Transform with Bit Masking</b>
+                                <label for="thetaFourierControls">θ</label>
+                                <input type="range" name="theta" id="thetaFourierControls">
+                                <label for="radiusFourierControls">r</label>
+                                <input type="range" name="radius" id="radiusFourierControls">
+                                <label for="dThetaFourierControls">Δθ</label>
+                                <input type="range" name="dtheta" id="dThetaFourierControls">
+                                <label for="dRadiusFourierControls">Δr</label>
+                                <input type="range" name="dradius" id="dRadiusFourierControls">
+                        </div>
+                    </div>
+                    <div id="segmentationControls">
+                        <div class="controlBox">
+                            <input type="radio" name="segmentationType" id="histBasedSegmentation">
+                            <label for="histBasedSegmentation"><b>Histogram Based Segmentation</b></label>
+                            <div id="histBasedSegmentationDiv">
+                                <i>Manual Thresholding</i>
+                                <input type="radio" name="thresholding" id="singleThresholdSegmentControls">
+                                <label for="singleThresholdSegmentControls">Single Thresholding</label>
+                                <input type="radio" name="thresholding" id="doubleThresholdSegmentControls">
+                                <label for="doubleThresholdSegmentControls">Double Thresholding</label>
+                                <i>Automatic Thresholding</i>
+                                <input type="radio" name="thresholding" id="autoThresholdSegmentControls">
+                                <label for="autoThresholdSegmentControls">Automatic Thresholding(Otsu)</label>
+                            </div>
+                            <input type="radio" name="segmentationType" id="regionGrowingSegmentation">
+                            <label for="regionGrowingSegmentation"><b>Region Growing</b></label>
+                            <div id="regionGrowing">
+                                <input type="radio" name="regionGrowingBasis" id="meanBasedRegionSegmentControls" value="mean">
+                                <label for="meanBasedRegionSegmentControls">Mean Based</label>
+                                <input type="radio" name="regionGrowingBasis" id="varianceBasedRegionSegmentControls" value="variance">
+                                <label for="varianceBasedRegionSegmentControls">Variance Based</label>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="btn-group">
                         <button
