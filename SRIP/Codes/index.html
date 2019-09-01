@@ -62,10 +62,10 @@
                 <div id="subHeading"><h3>Image Processing Test Bench</h3></div>
             </div>
             <div class="row">
-                <div id="controlBox" class="col-4">
+                <div id="controlPanel" class="col-4">
                     <h3>Image Processing Test Bench</h3>
                     <br />
-                    <div id="startControls">
+                    <div id="startControls" class="controlDiv">
                         <div class="instructionBox">
                             <p id="instructionText" class="text-center">
                                 Start the experiment by clicking on "Select
@@ -102,7 +102,7 @@
                                     type="radio"
                                     name="operation"
                                     id="affineRadio"
-                                    onclick="testSuite()"
+                                    onclick="showAffineView()"
                                 />
                                 <label for="affineRadio">Affine</label>
                             </div>
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="affineControls">
+                    <div id="affineControls" class="controlDiv">
                         <div class="instructionBox"></div>
                         <div class="radioControlBox">
                             <div>
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="pointControls">
+                    <div id="pointControls" class="controlDiv">
                         <div class="btn-group">
                             <button class="btn">Linear</button>
                             <button class="btn">Non-Linear</button>
@@ -333,7 +333,7 @@
                             />
                         </div>
                     </div>
-                    <div id="morphControls">
+                    <div id="morphControls" class="controlDiv">
                         <div class="controlBox">
                             <div>
                                 Select Operation:
@@ -410,7 +410,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="histogramControls">
+                    <div id="histogramControls" class="controlDiv">
                         <div class="controlBox">
                             <b>Processing Options:</b>
                             <input
@@ -439,7 +439,7 @@
                             >
                         </div>
                     </div>
-                    <div id="neighbourhoodControls">
+                    <div id="neighbourhoodControls" class="controlDiv">
                         <div class="controlBox">
                             <div class="row">
                                 <div class="col">
@@ -527,7 +527,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="fourierControls">
+                    <div id="fourierControls" class="controlDiv">
                         <div class="controlBox">
                             <b>Inverse Fourier Transform with Bit Masking</b>
                             <label for="thetaFourierControls">θ</label>
@@ -556,7 +556,7 @@
                             />
                         </div>
                     </div>
-                    <div id="segmentationControls">
+                    <div id="segmentationControls" class="controlDiv">
                         <div class="controlBox">
                             <input
                                 type="radio"
