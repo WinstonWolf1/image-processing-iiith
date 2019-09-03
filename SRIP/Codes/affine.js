@@ -82,7 +82,7 @@ function rotate(inputImage, angle, interpolType) {
 /**
  * Returns the image scaled by a factor of 2 ^ scaleFactor
  * @param {ImageData} inputImage
- * @param {boolean} toDownScale
+ * @param {boolean} toUpScale
  * @param {number} scaleFactor
  * @param {string} interpolType
  */
