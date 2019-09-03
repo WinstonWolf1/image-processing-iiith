@@ -16,7 +16,10 @@
         />
 
         <!-- Bootstrap Offline -->
-        <!-- <link rel="stylesheet" href="../Libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css"> -->
+        <!-- <link
+            rel="stylesheet"
+            href="../Libraries/bootstrap-4.3.1-dist/css/bootstrap.min.css"
+        /> -->
 
         <!-- Bootstrap CDN -->
         <link
@@ -67,7 +70,7 @@
                     <br />
                     <div id="startControls" class="controlDiv">
                         <div class="instructionBox">
-                            <p id="instructionText" class="text-center">
+                            <p id="startInstructionText" class="text-center">
                                 Start the experiment by clicking on "Select
                                 Image" and selecting an image from the mosaic
                             </p>
@@ -111,6 +114,7 @@
                                     type="radio"
                                     name="operation"
                                     id="pointRadio"
+                                    onclick="showPointView()"
                                 />
                                 <label for="pointRadio">Point</label>
                             </div>
@@ -119,6 +123,7 @@
                                     type="radio"
                                     name="operation"
                                     id="histogramRadio"
+                                    onclick="showHistogramView()"
                                 />
                                 <label for="histogramRadio">Histogram</label>
                             </div>
@@ -127,6 +132,7 @@
                                     type="radio"
                                     name="operation"
                                     id="neighbourRadio"
+                                    onclick="showNeighbourhoodView()"
                                 />
                                 <label for="neighbourRadio"
                                     >Neighbourhood</label
@@ -137,6 +143,7 @@
                                     type="radio"
                                     name="operation"
                                     id="fourierRadio"
+                                    onclick="showFourierView()"
                                 />
                                 <label for="fourierRadio"
                                     >Fourier Transform</label
@@ -147,6 +154,7 @@
                                     type="radio"
                                     name="operation"
                                     id="morphRadio"
+                                    onclick="showMorphView()"
                                 />
                                 <label for="morphRadio">Morphological</label>
                             </div>
@@ -155,67 +163,74 @@
                                     type="radio"
                                     name="operation"
                                     id="segmentRadio"
+                                    onclick="showSegmentationView()"
                                 />
                                 <label for="segmentRadio">Segmentation</label>
                             </div>
                         </div>
                     </div>
                     <div id="affineControls" class="controlDiv">
-                        <div class="instructionBox"></div>
+                        <div class="instructionBox">
+                            <p id="affineInstructionText" class="text-center">
+                                Select the required transform and press Run.
+                                Press Back to cancel operation.
+                            </p>
+                        </div>
                         <div class="radioControlBox">
                             <div>
-                                <div class="radio">
-                                    <input
-                                        type="radio"
-                                        name="affineTransform"
-                                        id="translateRadio"
-                                    />
-                                    <label for="translateRadio"
-                                        >Translate</label
-                                    >
-                                    <br />
-                                    <label for="translateRangeX"
-                                        >X Translation</label
-                                    >
-                                    <input
-                                        type="range"
-                                        class="custom-range"
-                                        min="-300"
-                                        max="300"
-                                        step="1"
-                                        value="0"
-                                        class="slider"
-                                        id="translateRangeX"
-                                    />
-                                    <label for="translateRangeY"
-                                        >Y Translation</label
-                                    >
-                                    <input
-                                        type="range"
-                                        class="custom-range"
-                                        min="-300"
-                                        max="300"
-                                        step="1"
-                                        value="0"
-                                        class="slider"
-                                        id="translateRangeY"
-                                    />
+                                <input
+                                    type="radio"
+                                    name="affineTransform"
+                                    id="translateRadio"
+                                />
+                                <label for="translateRadio">Translate</label>
+                                <div>
+                                    <div>
+                                        <label for="translateRangeX"
+                                            >X Translation</label
+                                        >
+                                        <input
+                                            type="range"
+                                            class="custom-range float-right"
+                                            min="-300"
+                                            max="300"
+                                            step="1"
+                                            value="0"
+                                            class="slider"
+                                            id="translateRangeX"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label for="translateRangeY"
+                                            >Y Translation</label
+                                        >
+                                        <input
+                                            type="range"
+                                            class="custom-range float-right"
+                                            min="-300"
+                                            max="300"
+                                            step="1"
+                                            value="0"
+                                            class="slider"
+                                            id="translateRangeY"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                             <div>
-                                <div class="radio">
-                                    <input
-                                        type="radio"
-                                        name="affineTransform"
-                                        id="rotateRadio"
-                                    />
-                                    <label for="rotateRadio">Rotate</label>
+                                <input
+                                    type="radio"
+                                    name="affineTransform"
+                                    id="rotateRadio"
+                                />
+                                <label for="rotateRadio">Rotate</label>
+                                <div>
                                     <label for="rotateTransformAngle"
                                         >Rotate Angle</label
                                     >
                                     <input
                                         type="range"
-                                        class="custom-range"
+                                        class="custom-range float-right"
                                         min="-180"
                                         max="180"
                                         step="1"
@@ -225,112 +240,155 @@
                                 </div>
                             </div>
                             <div>
-                                <div class="radio">
-                                    <input
-                                        type="radio"
-                                        name="affineTransform"
-                                        id="scaleRadio"
-                                    />
-                                    <label for="scaleRadio">Scale</label>
-                                    <label for=""></label>
-                                </div>
+                                <input
+                                    type="radio"
+                                    name="affineTransform"
+                                    id="scaleRadio"
+                                />
+                                <label for="scaleRadio">Scale</label>
+                                <label for=""></label>
                             </div>
                         </div>
                     </div>
                     <div id="pointControls" class="controlDiv">
                         <div class="btn-group">
-                            <button class="btn">Linear</button>
-                            <button class="btn">Non-Linear</button>
-                            <button class="btn">Clipping</button>
-                            <button class="btn">Window</button>
+                            <button class="btn btn-primary" type="button" onclick="">Linear</button>
+                            <button class="btn btn-primary">Non-Linear</button>
+                            <button class="btn btn-primary">Clipping</button>
+                            <button class="btn btn-primary">Window</button>
                         </div>
                         <div class="controlBox">
                             <div id="linearControls">
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="slope"
-                                    min="-57.3"
-                                    max="57.3"
-                                    id="slopeLinearPointControl"
-                                />
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="offset"
-                                    min="-255"
-                                    max="255"
-                                    id="offsetLinearPointControl"
-                                />
+                                <div>
+                                    <label for="slopeLinearPointControl">
+                                        Slope
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="slope"
+                                        min="-57.3"
+                                        max="57.3"
+                                        id="slopeLinearPointControl"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="offsetLinearPointControl">
+                                        Offset
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="offset"
+                                        min="-255"
+                                        max="255"
+                                        id="offsetLinearPointControl"
+                                    />
+                                </div>
                             </div>
                             <div id="nonLinearControls">
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="slope"
-                                    id="slopeNonLinearPointControl"
-                                />
+                                <div>
+                                    <label for="slopeNonLinearPointControl">
+                                        Slope
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="slope"
+                                        id="slopeNonLinearPointControl"
+                                    />
+                                </div>
                             </div>
                             <div id="ClippingControls">
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="windowStart"
-                                    min="0"
-                                    max="255"
-                                    id="windowStartClippingPointControl"
-                                />
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="windowEnd"
-                                    min="0"
-                                    max="255"
-                                    id="windowEndClippingPointControl"
-                                />
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="slope"
-                                    min="0"
-                                    max="1"
-                                    step="0.01"
-                                    id="slopeClippingPointControl"
-                                />
+                                <div>
+                                    <label for="windowStartClippingPointControl">
+                                        Window Start
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="windowStart"
+                                        min="0"
+                                        max="255"
+                                        id="windowStartClippingPointControl"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="windowEndClippingPointControl">
+                                        Window End
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="windowEnd"
+                                        min="0"
+                                        max="255"
+                                        id="windowEndClippingPointControl"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="slopeClippingPointControl">
+                                        Slope
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="slope"
+                                        min="0"
+                                        max="1"
+                                        step="0.01"
+                                        id="slopeClippingPointControl"
+                                    />
+                                </div>
                             </div>
                             <div id="WindowControls">
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="windowStart"
-                                    min="0"
-                                    max="255"
-                                    id="windowStartWindowPointControl"
-                                />
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="windowEnd"
-                                    min="0"
-                                    max="255"
-                                    id="windowEndWindowPointControl"
-                                />
-                                <input
-                                    type="range"
-                                    class="custom-range"
-                                    name="slope"
-                                    min="0"
-                                    max="1"
-                                    step="0.01"
-                                    id="slopeWindowPointControl"
-                                />
+                                <div>
+                                    <label for="windowStartWindowPointControl">
+                                        Window Start
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="windowStart"
+                                        min="0"
+                                        max="255"
+                                        id="windowStartWindowPointControl"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="windowEndWindowPointControl">
+                                        Window End
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="windowEnd"
+                                        min="0"
+                                        max="255"
+                                        id="windowEndWindowPointControl"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="slopeWindowPointControl">
+                                        Slope
+                                    </label>
+                                    <input
+                                        type="range"
+                                        class="custom-range float-right"
+                                        name="slope"
+                                        min="0"
+                                        max="1"
+                                        step="0.01"
+                                        id="slopeWindowPointControl"
+                                    />
+                                </div>
                             </div>
-                            <input
+                            <!-- <input
                                 type="range"
                                 class="custom-range"
                                 name=""
                                 id=""
-                            />
+                            /> -->
                         </div>
                     </div>
                     <div id="morphControls" class="controlDiv">
@@ -633,6 +691,14 @@
                         >
                             Run
                         </button>
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            id="backButton"
+                            onclick="showStartView()"
+                        >
+                            Back
+                        </button>
                     </div>
                 </div>
                 <div class="col-8">
@@ -699,7 +765,10 @@
 
         <!-- Bootstrap Offline -->
         <!-- <script src="../Libraries/jquery-3.4.1.min.js"></script> -->
-        <!-- <script type="text/javascript" src="../Libraries/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script> -->
+        <!-- <script
+            type="text/javascript"
+            src="../Libraries/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"
+        ></script> -->
 
         <!-- Bootstrap CDN -->
         <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
@@ -724,6 +793,7 @@
         <script src="morphological.js"></script>
         <script src="neighbourhood.js"></script>
         <script src="point.js"></script>
+        <script src="changeView.js"></script>
         <script src="projectTest.js"></script>
     </body>
 </html>
