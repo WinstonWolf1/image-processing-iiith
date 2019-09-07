@@ -114,7 +114,7 @@
                                     type="radio"
                                     name="operation"
                                     id="pointRadio"
-                                    onclick="showPointView()"
+                                    onclick="showPointView('linear')"
                                 />
                                 <label for="pointRadio">Point</label>
                             </div>
@@ -185,7 +185,7 @@
                                 />
                                 <label for="translateRadio">Translate</label>
                                 <div>
-                                    <div>
+                                    <div class="rangeControl">
                                         <label for="translateRangeX"
                                             >X Translation</label
                                         >
@@ -200,7 +200,7 @@
                                             id="translateRangeX"
                                         />
                                     </div>
-                                    <div>
+                                    <div class="rangeControl">
                                         <label for="translateRangeY"
                                             >Y Translation</label
                                         >
@@ -224,7 +224,7 @@
                                     id="rotateRadio"
                                 />
                                 <label for="rotateRadio">Rotate</label>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="rotateTransformAngle"
                                         >Rotate Angle</label
                                     >
@@ -252,14 +252,14 @@
                     </div>
                     <div id="pointControls" class="controlDiv">
                         <div class="btn-group">
-                            <button class="btn btn-primary" type="button" onclick="">Linear</button>
-                            <button class="btn btn-primary">Non-Linear</button>
-                            <button class="btn btn-primary">Clipping</button>
-                            <button class="btn btn-primary">Window</button>
+                            <button id="linearButtonPtCtrls"class="btn btn-primary active" type="button" onclick="showPointView('linear')">Linear</button>
+                            <button id="nonLinearButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('nonLinear')">Non-Linear</button>
+                            <button id="clippingButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('clipping')">Clipping</button>
+                            <button id="windowButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('window')">Window</button>
                         </div>
                         <div class="controlBox">
                             <div id="linearControls">
-                                <div>
+                                <div class="rangeControl">
                                     <label for="slopeLinearPointControl">
                                         Slope
                                     </label>
@@ -272,7 +272,7 @@
                                         id="slopeLinearPointControl"
                                     />
                                 </div>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="offsetLinearPointControl">
                                         Offset
                                     </label>
@@ -287,7 +287,7 @@
                                 </div>
                             </div>
                             <div id="nonLinearControls">
-                                <div>
+                                <div class="rangeControl">
                                     <label for="slopeNonLinearPointControl">
                                         Slope
                                     </label>
@@ -299,8 +299,8 @@
                                     />
                                 </div>
                             </div>
-                            <div id="ClippingControls">
-                                <div>
+                            <div id="clippingControls">
+                                <div class="rangeControl">
                                     <label for="windowStartClippingPointControl">
                                         Window Start
                                     </label>
@@ -313,7 +313,7 @@
                                         id="windowStartClippingPointControl"
                                     />
                                 </div>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="windowEndClippingPointControl">
                                         Window End
                                     </label>
@@ -326,7 +326,7 @@
                                         id="windowEndClippingPointControl"
                                     />
                                 </div>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="slopeClippingPointControl">
                                         Slope
                                     </label>
@@ -341,8 +341,8 @@
                                     />
                                 </div>
                             </div>
-                            <div id="WindowControls">
-                                <div>
+                            <div id="windowControls">
+                                <div class="rangeControl">
                                     <label for="windowStartWindowPointControl">
                                         Window Start
                                     </label>
@@ -355,7 +355,7 @@
                                         id="windowStartWindowPointControl"
                                     />
                                 </div>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="windowEndWindowPointControl">
                                         Window End
                                     </label>
@@ -368,7 +368,7 @@
                                         id="windowEndWindowPointControl"
                                     />
                                 </div>
-                                <div>
+                                <div class="rangeControl">
                                     <label for="slopeWindowPointControl">
                                         Slope
                                     </label>
@@ -471,30 +471,36 @@
                     <div id="histogramControls" class="controlDiv">
                         <div class="controlBox">
                             <b>Processing Options:</b>
-                            <input
-                                type="radio"
-                                name="globalEqualisation"
-                                id="globalHistEqualisationHistControls"
-                            />
-                            <label for="globalHistEqualisationHistControls"
-                                >Global Histogram Equalisation</label
-                            >
-                            <input
-                                type="radio"
-                                name="adaptiveEqualisation"
-                                id="adaptiveHistEqualisationHistControls"
-                            />
-                            <label for="adaptiveHistEqualisationHistControls"
-                                >Adaptive Histogram Equalisation</label
-                            >
-                            <input
-                                type="radio"
-                                name="histFilter"
-                                id="FilterHistogramHistControls"
-                            />
-                            <label for="FilterHistogramHistControls"
-                                >Filter Histogram</label
-                            >
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="globalEqualisation"
+                                    id="globalHistEqualisationHistControls"
+                                />
+                                <label for="globalHistEqualisationHistControls"
+                                    >Global Histogram Equalisation</label
+                                >
+                            </div>
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="adaptiveEqualisation"
+                                    id="adaptiveHistEqualisationHistControls"
+                                />
+                                <label for="adaptiveHistEqualisationHistControls"
+                                    >Adaptive Histogram Equalisation</label
+                                >
+                            </div>
+                            <div>
+                                <input
+                                    type="radio"
+                                    name="histFilter"
+                                    id="FilterHistogramHistControls"
+                                />
+                                <label for="FilterHistogramHistControls"
+                                    >Filter Histogram</label
+                                >
+                            </div>
                         </div>
                     </div>
                     <div id="neighbourhoodControls" class="controlDiv">
@@ -686,7 +692,7 @@
                     <div class="btn-group">
                         <button
                             type="button"
-                            class="btn btn-primary"
+                            class="btn btn-primary hide-back"
                             id="runButton"
                         >
                             Run

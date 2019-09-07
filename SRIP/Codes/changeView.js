@@ -23,6 +23,10 @@ function showPointView(type) {
             $('#nonLinearControls').hide();
             $('#clippingControls').hide();
             $('#windowControls').hide();
+            $('#linearButtonPtCtrls').addClass('active');
+            $('#nonLinearButtonPtCtrls').removeClass('active');
+            $('#clippingButtonPtCtrls').removeClass('active');
+            $('#windowButtonPtCtrls').removeClass('active');
             // $('#pointControls').
             break;
         case 'nonLinear':
@@ -30,16 +34,31 @@ function showPointView(type) {
             $('#nonLinearControls').show();
             $('#clippingControls').hide();
             $('#windowControls').hide();
+            $('#linearButtonPtCtrls').removeClass('active');
+            $('#nonLinearButtonPtCtrls').addClass('active');
+            $('#clippingButtonPtCtrls').removeClass('active');
+            $('#windowButtonPtCtrls').removeClass('active');
+            break;
         case 'clipping':
             $('#linearControls').hide();
             $('#nonLinearControls').hide();
             $('#clippingControls').show();
             $('#windowControls').hide();
+            $('#linearButtonPtCtrls').removeClass('active');
+            $('#nonLinearButtonPtCtrls').removeClass('active');
+            $('#clippingButtonPtCtrls').addClass('active');
+            $('#windowButtonPtCtrls').removeClass('active');
+            break;
         case 'window':
             $('#linearControls').hide();
             $('#nonLinearControls').hide();
             $('#clippingControls').hide();
             $('#windowControls').show();
+            $('#linearButtonPtCtrls').removeClass('active');
+            $('#nonLinearButtonPtCtrls').removeClass('active');
+            $('#clippingButtonPtCtrls').removeClass('active');
+            $('#windowButtonPtCtrls').addClass('active');
+            break;
 
         default:
             break;
