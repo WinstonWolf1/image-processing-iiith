@@ -1,6 +1,6 @@
 /**
  *  Function to test affine functions
- * @param {string} type 
+ * @param {string} type
  */
 function testAffineFuncs(type) {
     let inputImCanvas = document.getElementById("inputImCanvas"),
@@ -9,7 +9,7 @@ function testAffineFuncs(type) {
     inputImCanvasCtx.globalAlpha = 1.0;
     let selectedImage = inputImCanvasCtx.getImageData(0, 0, inputImCanvasCtx.canvas.width, inputImCanvasCtx.canvas.width);
     let processedImage = new ImageData(selectedImage.width, selectedImage.height);
-    
+
     switch (type) {
         case "translate":
             processedImage = translate(selectedImage, 30, 60);
@@ -43,16 +43,19 @@ function testPointFuncs(type) {
             processedImage = linearPointTransform(selectedImage, 2, 20);
             break;
         case "nonLinear":
-            processedImage = nonLinearPointTransform(selectedImage, 4);
+            processedImage = nonLinearPointTransform(selectedImage, 90);
             break;
         case "clipping":
             processedImage = clippingPointTransform(selectedImage, 2, 60, 190);
             break;
         case "window":
             processedImage = windowPointTransform(selectedImage, 3, 60, 190);
+            break;
         default:
+            return 1;
             break;
     }
     inputImCanvasCtx.putImageData(processedImage, 0,0);
+    return 0;
 
 }
