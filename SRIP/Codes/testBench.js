@@ -27,7 +27,8 @@ function selectImage() {
         resizeable: false,
         onSelectEnd: function(img, selection) {
             // As the mosaic is scaled when shown in the modal, using scaleFactor to scale it back
-            let scaleFactor = 900 / (0.76 * $(window).height());
+            // let scaleFactor = 900 / (0.76 * $(window).height());
+            let scaleFactor = 900 / 700;
             inputImCanvasCtx.drawImage(
                 img,
                 Math.round(selection.x1 * scaleFactor),
