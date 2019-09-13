@@ -33,6 +33,10 @@ function nonLinearPointTransform(inputImage, slope) {
         inputImage.height
     );
 
+    Math.log1p = Math.log1p || function(x) {
+        return Math.log(1 + x);
+    };
+
     for (let i = 0; i < inputImage.data.length; i += 4) {
         outputImage.data[i + 0] = slope * Math.log1p(inputImage.data[i + 0]);
         outputImage.data[i + 1] = slope * Math.log1p(inputImage.data[i + 1]);
