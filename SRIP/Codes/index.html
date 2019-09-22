@@ -176,7 +176,7 @@
                                 Press Back to cancel operation.
                             </p>
                         </div>
-                        <div class="radioControlBox">
+                        <div class="controlBox">
                             <div>
                                 <input
                                     type="radio"
@@ -240,22 +240,49 @@
                                 </div>
                             </div>
                             <div>
+                                <label for="scaleRadio">Scale</label>
                                 <input
                                     type="radio"
                                     name="affineTransform"
                                     id="scaleRadio"
                                 />
-                                <label for="scaleRadio">Scale</label>
-                                <label for=""></label>
                             </div>
                         </div>
                     </div>
                     <div id="pointControls" class="controlDiv">
                         <div class="btn-group">
-                            <button id="linearButtonPtCtrls"class="btn btn-primary active" type="button" onclick="showPointView('linear')">Linear</button>
-                            <button id="nonLinearButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('nonLinear')">Non-Linear</button>
-                            <button id="clippingButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('clipping')">Clipping</button>
-                            <button id="windowButtonPtCtrls"class="btn btn-primary" type="button" onclick="showPointView('window')">Window</button>
+                            <button
+                                id="linearButtonPtCtrls"
+                                class="btn btn-primary active"
+                                type="button"
+                                onclick="showPointView('linear')"
+                            >
+                                Linear
+                            </button>
+                            <button
+                                id="nonLinearButtonPtCtrls"
+                                class="btn btn-primary"
+                                type="button"
+                                onclick="showPointView('nonLinear')"
+                            >
+                                Non-Linear
+                            </button>
+                            <button
+                                id="clippingButtonPtCtrls"
+                                class="btn btn-primary"
+                                type="button"
+                                onclick="showPointView('clipping')"
+                            >
+                                Clipping
+                            </button>
+                            <button
+                                id="windowButtonPtCtrls"
+                                class="btn btn-primary"
+                                type="button"
+                                onclick="showPointView('window')"
+                            >
+                                Window
+                            </button>
                         </div>
                         <div class="controlBox">
                             <div id="linearControls">
@@ -301,7 +328,9 @@
                             </div>
                             <div id="clippingControls">
                                 <div class="rangeControl">
-                                    <label for="windowStartClippingPointControl">
+                                    <label
+                                        for="windowStartClippingPointControl"
+                                    >
                                         Window Start
                                     </label>
                                     <input
@@ -393,76 +422,125 @@
                     </div>
                     <div id="morphControls" class="controlDiv">
                         <div class="controlBox">
-                            <div>
-                                Select Operation:
-                                <br />
-                                <input
-                                    type="radio"
-                                    name="dilation"
-                                    id="dilationMorphControl"
-                                />
-                                <label for="dilationMorphControl"
-                                    >Dilation</label
-                                >
-                                <input
-                                    type="radio"
-                                    name="erosion"
-                                    id="erosionMorphControl"
-                                />
-                                <label for="erosionMorphControl">Erosion</label>
-                                <input
-                                    type="radio"
-                                    name="closing"
-                                    id="closingMorphControl"
-                                />
-                                <label for="closingMorphControl">Closing</label>
-                                <input
-                                    type="radio"
-                                    name="opening"
-                                    id="openingMorphControl"
-                                />
-                                <label for="openingMorphControl">Opening</label>
-                            </div>
-                            <div>
-                                Structuring Element Properties:
-                                <div class="row">
-                                    <div class="col w-50">
-                                        Shape
+                            <div class="row">
+                                <div class="col">
+                                    <b>Operation</b>
+                                    <div>
                                         <input
                                             type="radio"
-                                            name="disc"
-                                            id="discStrElementMorphControl"
+                                            name="dilation"
+                                            id="dilationMorphControl"
                                         />
-                                        <label for="discStrElementMorphControl"
-                                            >Disc</label
+                                        <label for="dilationMorphControl"
+                                            >Dilation</label
                                         >
-                                        <input
-                                            type="radio"
-                                            name="square"
-                                            id="squareStrElementMorphControl"
-                                        />
-                                        <label
-                                            for="squareStrElementMorphControl"
-                                            >Square</label
-                                        >
-                                        <input
-                                            type="radio"
-                                            name="line"
-                                            id="lineStrElementMorphControl"
-                                        />
-                                        <label for="lineStrElementMorphControl"
-                                            >Line</label
-                                        >
-                                        <!-- <div id="lineStrElementParamMorphControl">
-                                            <b>Angle from horizontal</b><br>
-                                            <input type="radio" name="angle" value="0"> 0 degrees <br>
-                                            <input type="radio" name="angle" value="30" checked="">30 degrees <br>
-                                            <input type="radio" name="angle" value="60"> 60 degrees <br>
-                                            <input type="radio" name="angle" value="90"> 90 degrees <br>
-                                        </div> -->
                                     </div>
-                                    <div class="col w-50">
-                                        <input type="radio" name="" id="" />
+                                    <div>
+                                        <input
+                                            type="radio"
+                                            name="erosion"
+                                            id="erosionMorphControl"
+                                        />
+                                        <label for="erosionMorphControl"
+                                            >Erosion</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="radio"
+                                            name="opening"
+                                            id="openingMorphControl"
+                                        />
+                                        <label for="openingMorphControl"
+                                            >Opening</label
+                                        >
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <b>Structuring Element Properties:</b>
+                                    <div class="row">
+                                        <div class="col">
+                                            <b>Shape</b>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="disc"
+                                                    id="discStrElementMorphControl"
+                                                />
+                                                <label
+                                                    for="discStrElementMorphControl"
+                                                    >Disc</label
+                                                >
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="square"
+                                                    id="squareStrElementMorphControl"
+                                                />
+                                                <label
+                                                    for="squareStrElementMorphControl"
+                                                    >Square</label
+                                                >
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="line"
+                                                    id="lineStrElementMorphControl"
+                                                />
+                                                <label
+                                                    for="lineStrElementMorphControl"
+                                                    >Line</label
+                                                >
+                                            </div>
+                                            <!-- <div id="lineStrElementParamMorphControl">
+                                                <b>Angle from horizontal</b><br>
+                                                <input type="radio" name="angle" value="0"> 0 degrees <br>
+                                                <input type="radio" name="angle" value="30" checked="">30 degrees <br>
+                                                <input type="radio" name="angle" value="60"> 60 degrees <br>
+                                                <input type="radio" name="angle" value="90"> 90 degrees <br>
+                                            </div> -->
+                                        </div>
+                                        <div class="col">
+                                            <b>Size</b>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="strElemSize"
+                                                    id="3strElemSizeMorphControl"
+                                                    value="3"
+                                                />
+                                                <label
+                                                    for="3strElemSizeMorphControl"
+                                                    >3 * 3</label
+                                                >
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="strElemSize"
+                                                    id="5strElemSizeMorphControl"
+                                                    value="5"
+                                                />
+                                                <label
+                                                    for="3strElemSizeMorphControl"
+                                                    >5 * 5</label
+                                                >
+                                            </div>
+                                            <div>
+                                                <input
+                                                    type="radio"
+                                                    name="strElemSize"
+                                                    id="7strElemSizeMorphControl"
+                                                    value="7"
+                                                />
+                                                <label
+                                                    for="3strElemSizeMorphControl"
+                                                    >7 * 7</label
+                                                >
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -487,7 +565,8 @@
                                     name="adaptiveEqualisation"
                                     id="adaptiveHistEqualisationHistControls"
                                 />
-                                <label for="adaptiveHistEqualisationHistControls"
+                                <label
+                                    for="adaptiveHistEqualisationHistControls"
                                     >Adaptive Histogram Equalisation</label
                                 >
                             </div>
@@ -508,183 +587,261 @@
                             <div class="row">
                                 <div class="col">
                                     <b>Linear Filtering</b>
-                                    <input
-                                        type="radio"
-                                        name="filterType"
-                                        value="strAvg"
-                                        id="strAvgLinFilterNeighControls"
-                                    />
-                                    <label for="strAvgLinFilterNeighControls"
-                                        >Straight Average</label
-                                    >
-                                    <input
-                                        type="radio"
-                                        name="filterType"
-                                        value="triangular"
-                                        id="triangularLinFilterNeighControls"
-                                    />
-                                    <label
-                                        for="triangularLinFilterNeighControls"
-                                        >Triangular Filter</label
-                                    >
-                                    <input
-                                        type="radio"
-                                        name="filterType"
-                                        value="gaussAvg"
-                                        id="GaussianLinFilterNeighControls"
-                                    />
-                                    <label for="GaussianLinFilterNeighControls"
-                                        >Gaussian Filter</label
-                                    >
+                                    <div>
+                                        <input
+                                            type="radio"
+                                            name="filterType"
+                                            value="strAvg"
+                                            id="strAvgLinFilterNeighControls"
+                                        />
+                                        <label
+                                            for="strAvgLinFilterNeighControls"
+                                            >Straight Average</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="radio"
+                                            name="filterType"
+                                            value="triangular"
+                                            id="triangularLinFilterNeighControls"
+                                        />
+                                        <label
+                                            for="triangularLinFilterNeighControls"
+                                            >Triangular Filter</label
+                                        >
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="radio"
+                                            name="filterType"
+                                            value="gaussAvg"
+                                            id="GaussianLinFilterNeighControls"
+                                        />
+                                        <label
+                                            for="GaussianLinFilterNeighControls"
+                                            >Gaussian Filter</label
+                                        >
+                                    </div>
                                 </div>
                                 <div class="col">
-                                    <b>Size of Neig'hood</b>
-                                    <input
-                                        type="radio"
-                                        name="filterSize"
-                                        id="3LinFilterSizeNeighControls"
-                                        value="3"
-                                    />
-                                    <label for="3LinFilterSizeNeighControls"
-                                        >3 * 3</label
-                                    >
-                                    <input
-                                        type="radio"
-                                        name="filterSize"
-                                        id="5LinFilterSizeNeighControls"
-                                        value="5"
-                                    />
-                                    <label for="5LinFilterSizeNeighControls"
-                                        >5 * 5</label
-                                    >
-                                    <input
-                                        type="radio"
-                                        name="filterSize"
-                                        id="7LinFilterSizeNeighControls"
-                                        value="7"
-                                    />
-                                    <label for="7LinFilterSizeNeighControls"
-                                        >7 * 7</label
-                                    >
+                                    <div>
+                                        <b>Size of Neig'hood</b>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="filterSize"
+                                                id="3LinFilterSizeNeighControls"
+                                                value="3"
+                                            />
+                                            <label
+                                                for="3LinFilterSizeNeighControls"
+                                                >3 * 3</label
+                                            >
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="filterSize"
+                                                id="5LinFilterSizeNeighControls"
+                                                value="5"
+                                            />
+                                            <label
+                                                for="5LinFilterSizeNeighControls"
+                                                >5 * 5</label
+                                            >
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="filterSize"
+                                                id="7LinFilterSizeNeighControls"
+                                                value="7"
+                                            />
+                                            <label
+                                                for="7LinFilterSizeNeighControls"
+                                                >7 * 7</label
+                                            >
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <b>Non-Linear Operations</b>
-                                <input
-                                    type="radio"
-                                    name="filterType"
-                                    id="medianNonLinFilterNeighControls"
-                                    value="median"
-                                />
-                                <label for="medianNonLinFilterNeighControls"
-                                    >Median</label
-                                >
-                                <input
-                                    type="radio"
-                                    name="filterType"
-                                    id="unsharpNonLinFilterNeighControls"
-                                    value="unsharp"
-                                />
-                                <label for="unsharpNonLinFilterNeighControls"
-                                    >Unsharp</label
-                                >
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <b>Non-Linear Operations</b>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="filterType"
+                                                id="medianNonLinFilterNeighControls"
+                                                value="median"
+                                            />
+                                            <label
+                                                for="medianNonLinFilterNeighControls"
+                                                >Median</label
+                                            >
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="filterType"
+                                                id="unsharpNonLinFilterNeighControls"
+                                                value="unsharp"
+                                            />
+                                            <label
+                                                for="unsharpNonLinFilterNeighControls"
+                                                >Unsharp</label
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div id="fourierControls" class="controlDiv">
                         <div class="controlBox">
-                            <b>Inverse Fourier Transform with Bit Masking</b>
-                            <label for="thetaFourierControls">θ</label>
-                            <input
-                                type="range"
-                                name="theta"
-                                id="thetaFourierControls"
-                            />
-                            <label for="radiusFourierControls">r</label>
-                            <input
-                                type="range"
-                                name="radius"
-                                id="radiusFourierControls"
-                            />
-                            <label for="dThetaFourierControls">Δθ</label>
-                            <input
-                                type="range"
-                                name="dtheta"
-                                id="dThetaFourierControls"
-                            />
-                            <label for="dRadiusFourierControls">Δr</label>
-                            <input
-                                type="range"
-                                name="dradius"
-                                id="dRadiusFourierControls"
-                            />
+                            <div>
+                                <b
+                                    >Inverse Fourier Transform with Bit
+                                    Masking</b
+                                >
+                                <div>
+                                    <label for="thetaFourierControls">θ</label>
+                                    <input
+                                        type="range"
+                                        name="theta"
+                                        class="custom-range"
+                                        id="thetaFourierControls"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="radiusFourierControls">r</label>
+                                    <input
+                                        type="range"
+                                        name="radius"
+                                        class="custom-range"
+                                        id="radiusFourierControls"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="dThetaFourierControls"
+                                        >Δθ</label
+                                    >
+                                    <input
+                                        type="range"
+                                        name="dtheta"
+                                        class="custom-range"
+                                        id="dThetaFourierControls"
+                                    />
+                                </div>
+                                <div>
+                                    <label for="dRadiusFourierControls"
+                                        >Δr</label
+                                    >
+                                    <input
+                                        type="range"
+                                        name="dradius"
+                                        class="custom-range"
+                                        id="dRadiusFourierControls"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="segmentationControls" class="controlDiv">
                         <div class="controlBox">
-                            <input
-                                type="radio"
-                                name="segmentationType"
-                                id="histBasedSegmentation"
-                            />
-                            <label for="histBasedSegmentation"
-                                ><b>Histogram Based Segmentation</b></label
-                            >
-                            <div id="histBasedSegmentationDiv">
-                                <i>Manual Thresholding</i>
-                                <input
-                                    type="radio"
-                                    name="thresholding"
-                                    id="singleThresholdSegmentControls"
-                                />
-                                <label for="singleThresholdSegmentControls"
-                                    >Single Thresholding</label
-                                >
-                                <input
-                                    type="radio"
-                                    name="thresholding"
-                                    id="doubleThresholdSegmentControls"
-                                />
-                                <label for="doubleThresholdSegmentControls"
-                                    >Double Thresholding</label
-                                >
-                                <i>Automatic Thresholding</i>
-                                <input
-                                    type="radio"
-                                    name="thresholding"
-                                    id="autoThresholdSegmentControls"
-                                />
-                                <label for="autoThresholdSegmentControls"
-                                    >Automatic Thresholding(Otsu)</label
-                                >
-                            </div>
-                            <input
-                                type="radio"
-                                name="segmentationType"
-                                id="regionGrowingSegmentation"
-                            />
-                            <label for="regionGrowingSegmentation"
-                                ><b>Region Growing</b></label
-                            >
-                            <div id="regionGrowing">
-                                <input
-                                    type="radio"
-                                    name="regionGrowingBasis"
-                                    id="meanBasedRegionSegmentControls"
-                                    value="mean"
-                                />
-                                <label for="meanBasedRegionSegmentControls"
-                                    >Mean Based</label
-                                >
-                                <input
-                                    type="radio"
-                                    name="regionGrowingBasis"
-                                    id="varianceBasedRegionSegmentControls"
-                                    value="variance"
-                                />
-                                <label for="varianceBasedRegionSegmentControls"
-                                    >Variance Based</label
-                                >
+                            <div class="row">
+                                <div class="col">
+                                    <div>
+                                        <!-- <input
+                                            type="radio"
+                                            name="segmentationType"
+                                            id="histBasedSegmentation"
+                                        /> -->
+                                        <label for="histBasedSegmentation"
+                                            ><b
+                                                >Histogram Based Segmentation</b
+                                            ></label
+                                        >
+                                    </div>
+                                    <div id="histBasedSegmentationDiv">
+                                        <b><i>Manual Thresholding</i></b>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="thresholding"
+                                                id="singleThresholdSegmentControls"
+                                            />
+                                            <label
+                                                for="singleThresholdSegmentControls"
+                                                >Single Thresholding</label
+                                            >
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="thresholding"
+                                                id="doubleThresholdSegmentControls"
+                                            />
+                                            <label
+                                                for="doubleThresholdSegmentControls"
+                                                >Double Thresholding</label
+                                            >
+                                        </div>
+                                        <b><i>Automatic Thresholding</i></b>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="thresholding"
+                                                id="autoThresholdSegmentControls"
+                                            />
+                                            <label
+                                                for="autoThresholdSegmentControls"
+                                                >Automatic
+                                                Thresholding(Otsu)</label
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div>
+                                        <!-- <input
+                                            type="radio"
+                                            name="segmentationType"
+                                            id="regionGrowingSegmentation"
+                                        /> -->
+                                        <label for="regionGrowingSegmentation"
+                                            ><b>Region Growing</b></label
+                                        >
+                                    </div>
+                                    <div id="regionGrowing">
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="regionGrowingBasis"
+                                                id="meanBasedRegionSegmentControls"
+                                                value="mean"
+                                            />
+                                            <label
+                                                for="meanBasedRegionSegmentControls"
+                                                >Mean Based</label
+                                            >
+                                        </div>
+                                        <div>
+                                            <input
+                                                type="radio"
+                                                name="regionGrowingBasis"
+                                                id="varianceBasedRegionSegmentControls"
+                                                value="variance"
+                                            />
+                                            <label
+                                                for="varianceBasedRegionSegmentControls"
+                                                >Variance Based</label
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
