@@ -75,11 +75,10 @@
                                 Image" and selecting an image from the mosaic
                             </p>
                         </div>
-                        <br />
                         <div class="btn-group">
                             <button
                                 type="button"
-                                class="btn btn-primary"
+                                class=""
                                 data-toggle="modal"
                                 data-modal="#MosaicImgModal"
                                 id="selectImgButton"
@@ -89,7 +88,7 @@
                             </button>
                             <button
                                 type="button"
-                                class="btn btn-primary disabled"
+                                class="disabled"
                                 id="resetButton"
                                 onclick="reset()"
                                 disabled
@@ -253,7 +252,7 @@
                         <div class="btn-group">
                             <button
                                 id="linearButtonPtCtrls"
-                                class="btn btn-primary active"
+                                class="active"
                                 type="button"
                                 onclick="showPointView('linear')"
                             >
@@ -261,7 +260,7 @@
                             </button>
                             <button
                                 id="nonLinearButtonPtCtrls"
-                                class="btn btn-primary"
+                                class=""
                                 type="button"
                                 onclick="showPointView('nonLinear')"
                             >
@@ -269,7 +268,7 @@
                             </button>
                             <button
                                 id="clippingButtonPtCtrls"
-                                class="btn btn-primary"
+                                class=""
                                 type="button"
                                 onclick="showPointView('clipping')"
                             >
@@ -277,7 +276,7 @@
                             </button>
                             <button
                                 id="windowButtonPtCtrls"
-                                class="btn btn-primary"
+                                class=""
                                 type="button"
                                 onclick="showPointView('window')"
                             >
@@ -428,7 +427,8 @@
                                     <div>
                                         <input
                                             type="radio"
-                                            name="dilation"
+                                            name="morphOperationType"
+                                            value="dilation"
                                             id="dilationMorphControl"
                                         />
                                         <label for="dilationMorphControl"
@@ -438,7 +438,8 @@
                                     <div>
                                         <input
                                             type="radio"
-                                            name="erosion"
+                                            name="morphOperationType"
+                                            value="erosion"
                                             id="erosionMorphControl"
                                         />
                                         <label for="erosionMorphControl"
@@ -448,7 +449,8 @@
                                     <div>
                                         <input
                                             type="radio"
-                                            name="opening"
+                                            name="morphOperationType"
+                                            value="opening"
                                             id="openingMorphControl"
                                         />
                                         <label for="openingMorphControl"
@@ -464,7 +466,8 @@
                                             <div>
                                                 <input
                                                     type="radio"
-                                                    name="disc"
+                                                    name="morphStrElemType"
+                                                    value="disc"
                                                     id="discStrElementMorphControl"
                                                 />
                                                 <label
@@ -475,7 +478,8 @@
                                             <div>
                                                 <input
                                                     type="radio"
-                                                    name="square"
+                                                    name="morphStrElemType"
+                                                    value="square"
                                                     id="squareStrElementMorphControl"
                                                 />
                                                 <label
@@ -486,7 +490,8 @@
                                             <div>
                                                 <input
                                                     type="radio"
-                                                    name="line"
+                                                    name="morphStrElemType"
+                                                    value="line"
                                                     id="lineStrElementMorphControl"
                                                 />
                                                 <label
@@ -849,14 +854,14 @@
                     <div class="btn-group">
                         <button
                             type="button"
-                            class="btn btn-primary hide-back"
+                            class="hide-back"
                             id="runButton"
                         >
                             Run
                         </button>
                         <button
                             type="button"
-                            class="btn btn-primary"
+                            class=""
                             id="backButton"
                             onclick="showStartView()"
                         >

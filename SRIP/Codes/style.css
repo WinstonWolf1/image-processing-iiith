@@ -1,57 +1,71 @@
+body {
+  color: #171717;
+}
+
 #ContentBox {
-    height: 100vh;
-    font-family: "Titillium Web";
-    background-color: #171717;
-    color: #c2c2c2;
+  height: 100vh;
+  font-family: "Titillium Web";
+  background-color: #171717;
+  color: #c2c2c2;
 }
 
 #topbar {
-    position: relative;
-    background-color: #3a3a3a;
-    height: 110px;
-    width: 60%;
-    margin: 0 auto;
-    color: #c2c2c2;
+  position: relative;
+  background-color: #3a3a3a;
+  height: 110px;
+  width: 60%;
+  margin: 0 auto;
+  color: #c2c2c2;
 }
 
 #iiitLogo {
-    position: absolute;
-    margin-left: 20px;
-    margin-top: 20px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 #heading {
-    text-align: center;
-    padding-top: 10px;
-    color: #c2c2c2;
-    font-family: Titillium Web;
-    font-size: 0.8em;
-    margin-top: 5px;
-    padding-top: 1px;
-    padding-left: 50px;
+  text-align: center;
+  padding-top: 10px;
+  color: #c2c2c2;
+  font-family: Titillium Web;
+  font-size: 0.8em;
+  margin-top: 5px;
+  padding-top: 1px;
+  padding-left: 50px;
 }
 
 #subHeading {
-    margin: auto;
-    text-align: center;
+  margin: auto;
+  text-align: center;
 }
 
 .instructionBox {
-    width: 28vw;
-    border-style: dashed;
-    margin: auto;
+  width: 28vw;
+  margin: auto;
+}
+
+button {
+  border-radius: 10px;
+  padding: 5px 25px;
 }
 
 #controlPanel {
-    margin: 0 auto;
-    margin-top: 2em;
-    text-align: center;
-    height: 48vh;
+  margin: 0 auto;
+  margin-top: 2em;
+  text-align: center;
+  height: 48vh;
 }
 
 .radioControlBox {
-    text-align: left;
-    transform: translateX(3em);
+  text-align: left;
+  transform: translateX(3em);
+}
+
+.controlDiv {
+  box-sizing: border-box;
+  border: 1px solid #c2c2c2;
+  border-radius: 20px;
 }
 
 /* #startControls {
@@ -59,7 +73,7 @@
 } */
 
 #affineControls {
-    display: none;
+  display: none;
 }
 
 /* #translateRangeX, #translateRangeY {
@@ -67,82 +81,90 @@
 } */
 
 input[type="range"] {
-    width: 70%;
-    float: right;
+  width: 70%;
+  float: right;
 }
 
 #pointControls {
-    display: none;
+  display: none;
 }
 
 #morphControls {
-    display: none;
+  display: none;
 }
 
 #histogramControls {
-    display: none;
+  display: none;
 }
 
 #neighbourhoodControls {
-    display: none;
+  display: none;
 }
 
 #fourierControls {
-    display: none;
+  display: none;
 }
 
 #segmentationControls {
-    display: none;
+  display: none;
 }
 
 #backButton {
-    display: none;
+  display: none;
 }
 
 .hide-back {
-    border-bottom-right-radius: 4px !important;
-    border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }
 
 .rangeControl {
-    padding-left: 2rem;
+  padding-left: 2rem;
 }
 
 .custom-range {
-    width: 100%;
-    height: calc(1rem + 0.4rem);
-    padding: 0;
-    background-color: transparent;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  width: 100%;
+  height: calc(1rem + 0.4rem);
+  padding: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 #inputImCanvasDiv,
 #outputImCanvasDiv {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 #inputImCanvas,
 #outputImCanvas {
-    width: 23vw;
-    height: 23vw;
-    border-style: solid;
-    transform: translateX(15%) translateY(12%);
+  width: 23vw;
+  height: 23vw;
+  border-style: solid;
+  transform: translateX(15%) translateY(12%);
+}
+
+#inputImCanvas {
+  border-color: yellow;
+}
+
+#outputImCanvas {
+  border-color: blue;
 }
 
 #pipelineDiv {
-    height: 20vh;
-    margin: 0 auto;
+  height: 20vh;
+  margin: 0 auto;
 }
 
 #MosaicImgModal .modal-header {
-    padding: 0.7rem;
+  padding: 0.7rem;
 }
 
 #mosaicSelectImage {
-    width: 700px;
-    height: 700px;
-    margin: auto;
-    display: block;
+  width: 700px;
+  height: 700px;
+  margin: auto;
+  display: block;
 }
