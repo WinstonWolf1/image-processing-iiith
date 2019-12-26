@@ -1,9 +1,8 @@
 body {
-  color: #171717;
+  background-color: #171717;
 }
 
 #ContentBox {
-  height: 100vh;
   font-family: "Titillium Web";
   background-color: #171717;
   color: #c2c2c2;
@@ -54,7 +53,6 @@ button {
   margin: 0 auto;
   margin-top: 2em;
   text-align: center;
-  height: 48vh;
 }
 
 .radioControlBox {
@@ -62,8 +60,7 @@ button {
   transform: translateX(3em);
 }
 
-.controlDiv {
-  box-sizing: border-box;
+#controlPanel {
   border: 1px solid #c2c2c2;
   border-radius: 20px;
 }
