@@ -82,7 +82,6 @@
                                 data-toggle="modal"
                                 data-modal="#MosaicImgModal"
                                 id="selectImgButton"
-                                onclick="selectImage()"
                             >
                                 Select Image
                             </button>
@@ -90,7 +89,6 @@
                                 type="button"
                                 class="disabled"
                                 id="resetButton"
-                                onclick="reset()"
                                 disabled
                             >
                                 Reset
@@ -104,7 +102,6 @@
                                     type="radio"
                                     name="operation"
                                     id="affineRadio"
-                                    onclick="showAffineView()"
                                 />
                                 <label for="affineRadio">Affine</label>
                             </div>
@@ -113,7 +110,6 @@
                                     type="radio"
                                     name="operation"
                                     id="pointRadio"
-                                    onclick="showPointView('linear')"
                                 />
                                 <label for="pointRadio">Point</label>
                             </div>
@@ -122,7 +118,6 @@
                                     type="radio"
                                     name="operation"
                                     id="histogramRadio"
-                                    onclick="showHistogramView()"
                                 />
                                 <label for="histogramRadio">Histogram</label>
                             </div>
@@ -131,7 +126,6 @@
                                     type="radio"
                                     name="operation"
                                     id="neighbourRadio"
-                                    onclick="showNeighbourhoodView()"
                                 />
                                 <label for="neighbourRadio"
                                     >Neighbourhood</label
@@ -142,7 +136,6 @@
                                     type="radio"
                                     name="operation"
                                     id="fourierRadio"
-                                    onclick="showFourierView()"
                                 />
                                 <label for="fourierRadio"
                                     >Fourier Transform</label
@@ -153,7 +146,6 @@
                                     type="radio"
                                     name="operation"
                                     id="morphRadio"
-                                    onclick="showMorphView()"
                                 />
                                 <label for="morphRadio">Morphological</label>
                             </div>
@@ -162,7 +154,6 @@
                                     type="radio"
                                     name="operation"
                                     id="segmentRadio"
-                                    onclick="showSegmentationView()"
                                 />
                                 <label for="segmentRadio">Segmentation</label>
                             </div>
@@ -254,7 +245,6 @@
                                 id="linearButtonPtCtrls"
                                 class="active"
                                 type="button"
-                                onclick="showPointView('linear')"
                             >
                                 Linear
                             </button>
@@ -262,7 +252,6 @@
                                 id="nonLinearButtonPtCtrls"
                                 class=""
                                 type="button"
-                                onclick="showPointView('nonLinear')"
                             >
                                 Non-Linear
                             </button>
@@ -270,7 +259,6 @@
                                 id="clippingButtonPtCtrls"
                                 class=""
                                 type="button"
-                                onclick="showPointView('clipping')"
                             >
                                 Clipping
                             </button>
@@ -278,7 +266,6 @@
                                 id="windowButtonPtCtrls"
                                 class=""
                                 type="button"
-                                onclick="showPointView('window')"
                             >
                                 Window
                             </button>
@@ -863,7 +850,6 @@
                             type="button"
                             class=""
                             id="backButton"
-                            onclick="showStartView()"
                         >
                             Back
                         </button>
